@@ -6,26 +6,8 @@ import os
 import urllib.request
 from bs4 import BeautifulSoup
 
-
-def twitch():
-    d = feedparser.parse("https://twitchrss.appspot.com/vod/heitorloureiro")
-    for entry in d.entries:
-        soup = BeautifulSoup(entry.summary, 'lxml')
-        a = soup.find('img')
-        url = a['src']
-        r = urllib.request.urlopen(url)
-        with open("heitor.png", "wb") as f:
-            f.write(r.read())
-        a = d.entries[0].title + "\n" + d.entries[0].link
-        print(str(a))
-        os.system(
-            "xclip -sel clip -t image/png /home/pedro/Documentos/Python/Heitor/heitor.png")
-        break
-
-
 def blog():
     d = feedparser.parse("https://medium.com/feed/@heitorloureiro")
-    print(d.entries[0].title + "\n" + d.entries[0].link)
     return d.entries[0].title + "\n" + d.entries[0].link
 
 
