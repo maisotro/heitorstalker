@@ -10,7 +10,7 @@ d1 = feedparser.parse("https://ondem.libsyn.com/rss")
 for entry in d1.entries:
     if "ONDE Política" in str(entry.title):
         #texto = entry.title + "\n" + entry.link + '\n' + entry.subtitle + '\n' + entry.id
-        texto = entry.content
+        texto = entry.content.text.strip()
         print(remove_tags(str(texto)))
         break
         
