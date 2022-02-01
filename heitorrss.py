@@ -1,6 +1,5 @@
 import feedparser
 import fire
-import twint
 import pyperclip
 import os
 import urllib.request
@@ -16,7 +15,6 @@ def podcast():
         if "ONDE Política" in str(entry.title):
             return entry.title + "\n" + entry.link
             break
-
 def youtube():
     d2 = feedparser.parse(
         "https://www.youtube.com/feeds/videos.xml?channel_id=UCagwwqpZie4J4cXerPfO1bw")
