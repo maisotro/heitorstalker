@@ -1,9 +1,6 @@
 import feedparser
 import fire
 import pyperclip
-import os
-import urllib.request
-from bs4 import BeautifulSoup
 
 def blog():
     d = feedparser.parse("https://medium.com/feed/@heitorloureiro")
