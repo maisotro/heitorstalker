@@ -10,23 +10,24 @@ def Stalker(evento=None):
     conteudo.delete('1.0', 'end')
 
     if combo.get() == 'Blog':
-        d = feedparser.parse("https://medium.com/feed/@heitorloureiro")
-        texto = d.entries[0].title + "\n" + d.entries[0].link
+        d = feedparser.parse('https://medium.com/feed/@heitorloureiro')
+        texto = d.entries[0].title + '\n' + d.entries[0].link
         conteudo.insert('1.0', texto)
 
     if combo.get() == 'Podcast':
-        d1 = feedparser.parse("https://ondem.libsyn.com/rss")
+        d1 = feedparser.parse('https://ondem.libsyn.com/rss')
         for entry in d1.entries:
-            if "ONDE Política" in str(entry.title):
-                texto = entry.title + "\n" + entry.link
+            if 'ONDE Política' in str(entry.title):
+                texto = entry.title + '\n' + entry.link
                 conteudo.insert('1.0', texto)
                 break
 
     if combo.get() == 'Youtube':
         d2 = feedparser.parse(
-            "https://www.youtube.com/feeds/videos.xml?channel_id=UCagwwqpZie4J4cXerPfO1bw")
+            'https://www.youtube.com/feeds/videos.xml?channel_id=UCagwwqpZie4J4cXerPfO1bw'
+        )
         for entry in d2.entries:
-            texto = entry.title + "\n" + entry.link
+            texto = entry.title + '\n' + entry.link
             conteudo.insert('1.0', texto)
     conteudo.configure(state='disabled')
 
@@ -55,9 +56,9 @@ combo = ttk.Combobox(frame, values=values)
 combo['state'] = 'readonly'
 combo.set('Blog')
 
-botao = ttk.Button(frame, text="Stalqueie", command=Stalker)
-butao = ttk.Button(frame, text="Sair", command=sair)
-butao_copia = ttk.Button(frame, text="Copiar", command=copia)
+botao = ttk.Button(frame, text='Stalqueie', command=Stalker)
+butao = ttk.Button(frame, text='Sair', command=sair)
+butao_copia = ttk.Button(frame, text='Copiar', command=copia)
 
 botao.grid(row=0, column=1, padx=4)
 butao.grid(row=1, column=1)
