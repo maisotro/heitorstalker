@@ -1,8 +1,9 @@
+import sys
+from tkinter import Text, ttk
+
 import feedparser
-from tkinter import ttk, Text
 import pyperclip
 from ttkthemes import ThemedTk
-import sys
 
 
 def Stalker(evento=None):
