@@ -10,6 +10,25 @@ def Stalker(evento=None):
     conteudo.configure(state='normal')
     conteudo.delete('1.0', 'end')
 
+    if combo.get() == 'Todos':
+        d = feedparser.parse('https://medium.com/feed/@heitorloureiro')
+        texto1 = d.entries[0].title + '\n' + d.entries[0].link
+
+        d1 = feedparser.parse('https://ondem.libsyn.com/rss')
+        for entry in d1.entries:
+            if 'ONDE Política' in str(entry.title):
+                texto2 = entry.title + '\n' + entry.link
+                break
+
+        d2 = feedparser.parse(
+            'https://www.youtube.com/feeds/videos.xml?channel_id=UCagwwqpZie4J4cXerPfO1bw'
+        )
+        for entry in d2.entries:
+            texto3 = entry.title + '\n' + entry.link
+
+        texto4 = texto1 + '\n' + texto2 + '\n' + texto3
+        conteudo.insert('1.0', texto4)
+
     if combo.get() == 'Blog':
         d = feedparser.parse('https://medium.com/feed/@heitorloureiro')
         texto = d.entries[0].title + '\n' + d.entries[0].link
@@ -51,7 +70,7 @@ frame = ttk.Frame()
 conteudo = Text(frame)
 
 
-values = ['Blog', 'Podcast', 'Youtube']
+values = ['Blog', 'Podcast', 'Youtube', 'Todos']
 
 combo = ttk.Combobox(frame, values=values)
 combo['state'] = 'readonly'
@@ -60,6 +79,7 @@ combo.set('Blog')
 botao = ttk.Button(frame, text='Stalqueie', command=Stalker)
 butao = ttk.Button(frame, text='Sair', command=sair)
 butao_copia = ttk.Button(frame, text='Copiar', command=copia)
+
 
 botao.grid(row=0, column=1, padx=4)
 butao.grid(row=1, column=1)
