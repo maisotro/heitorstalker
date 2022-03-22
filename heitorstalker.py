@@ -12,19 +12,19 @@ def Stalker(evento=None):
 
     if combo.get() == 'Todos':
         d = feedparser.parse('https://medium.com/feed/@heitorloureiro')
-        texto1 = d.entries[0].title + '\n' + d.entries[0].link
+        texto1 = 'blog \n' + d.entries[0].title + '\n' + d.entries[0].link
 
         d1 = feedparser.parse('https://ondem.libsyn.com/rss')
         for entry in d1.entries:
             if 'ONDE Política' in str(entry.title):
-                texto2 = entry.title + '\n' + entry.link
+                texto2 = 'Podcast \n' + entry.title + '\n' + entry.link
                 break
 
         d2 = feedparser.parse(
             'https://www.youtube.com/feeds/videos.xml?channel_id=UCagwwqpZie4J4cXerPfO1bw'
         )
         for entry in d2.entries:
-            texto3 = entry.title + '\n' + entry.link
+            texto3 = 'Youtube \n' + entry.title + '\n' + entry.link
 
         texto4 = texto1 + '\n' + texto2 + '\n' + texto3
         conteudo.insert('1.0', texto4)
