@@ -12,7 +12,7 @@ def Stalker(evento=None):
 
     if combo.get() == 'Todos':
         d = feedparser.parse('https://medium.com/feed/@heitorloureiro')
-        texto1 = 'blog \n' + d.entries[0].title + '\n' + d.entries[0].link
+        texto1 = 'Blog \n' + d.entries[0].title + '\n' + d.entries[0].link
 
         d1 = feedparser.parse('https://ondem.libsyn.com/rss')
         for entry in d1.entries:
