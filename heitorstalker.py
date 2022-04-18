@@ -63,7 +63,7 @@ def copia():
 
 # janela = Tk()
 janela = ThemedTk(theme='arc')
-janela.title('Heitor Stalker 0.1')
+janela.title('Heitor Stalker 1.0')
 janela.geometry('870x470')
 
 frame = ttk.Frame()
