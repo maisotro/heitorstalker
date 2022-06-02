@@ -1,6 +1,5 @@
 import sys
 from tkinter import Text, ttk
-
 import feedparser
 import pyperclip
 from ttkthemes import ThemedTk
